@@ -15,6 +15,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
+                            
                             git "https://github.com/emmak202/automation.git"
                         }
                     }
