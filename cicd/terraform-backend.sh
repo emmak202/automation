@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUCKET_NAME="k8s-terraform-backend"
+BUCKET_NAME="stack-dev-k8s-tf-backend"
 REGION="eu-west-2"
 
 echo "Checking if S3 bucket exists..."

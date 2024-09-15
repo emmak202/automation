@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "stack-k8s-terraform-backend"
+    bucket = "stack-dev-k8s-tf-backend"
     key = "build/terraform.tfstate"
     region = "eu-west-2"
     profile = "emma"
