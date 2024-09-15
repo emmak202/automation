@@ -5,7 +5,7 @@ phases:
     runtime-version:
       python: 3.x
 
-  pre-build:
+  pre_build:
     commands:
       - cd cicd # change directory to the terraform where the terraform config files are
       - chmoc +x install-terraform.sh configure-profile-name.sh terraform-backend.sh apply-terraform.sh
@@ -16,3 +16,5 @@ phases:
   build: 
     commands:
       - ./apply-terraform.sh
+
+  
