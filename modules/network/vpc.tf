@@ -1,7 +1,7 @@
 
 
 resource "aws_vpc" "main" {
-    cidr_block = "172.16.0.0/24"    
+    cidr_block = "192.168.10.0/24"    
     instance_tenancy = "default"
     enable_dns_hostnames = true
     enable_dns_support = true
@@ -16,7 +16,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "172.16.0.0/26 "
+  cidr_block = "192.168.10.0/26 "
 
   tags = {
     Name = "Public-1"
@@ -25,7 +25,7 @@ resource "aws_subnet" "public1" {
 
 resource "aws_subnet" "private1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "172.16.0.64/26"
+  cidr_block = "192.168.10.64/26"
 
   tags = {
     Name = "Private-1"
@@ -34,7 +34,7 @@ resource "aws_subnet" "private1" {
 
 resource "aws_subnet" "public2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "172.16.0.128/26"
+  cidr_block = "192.168.10.128/26"
 
   tags = {
     Name = "Public-2"
@@ -43,7 +43,7 @@ resource "aws_subnet" "public2" {
 
 resource "aws_subnet" "private2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = "172.16.0.192/26"
+  cidr_block = "192.168.10.192/26"
 
   tags = {
     Name = "Private-2"
