@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  inastall:
+    runtime-version:
+      python: 3.x
+
+  pre-build:
+    commands:
+      - cd cicd # change directory to the terraform where the terraform config files are
+      - chmoc +x install-terraform.sh configure-profile-name.sh terraform-backend.sh apply-terraform.sh
+      - ./terraform-backend.sh
+      - ./install-terraform.sh
+      - ./configure-profile-name.sh
+
+  build: 
+    commands:
+      - ./apply-terraform.sh
