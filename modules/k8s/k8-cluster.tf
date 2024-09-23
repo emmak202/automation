@@ -8,14 +8,6 @@ resource "aws_security_group" "sg-cluster" {
   
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow_https" {
-   security_group_id = aws_security_group.sg-cluster.id
-   cidr_ipv4 =  var.vpc_cidr
-   from_port = 443
-   to_port = 443
-   ip_protocol = "tcp"
-
-}
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
    security_group_id = aws_security_group.sg-cluster.id
