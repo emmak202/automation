@@ -27,7 +27,7 @@ resource "aws_instance" "master" {
     ami = var.ami_type
     instance_type = var.instance_type
     subnet_id = var.public_subnet_id
-    security_groups = [aws_security_group.sg-cluster]
+    security_groups = [aws_security_group.sg-cluster.id]
     tags = {
       name: "master"
     }
@@ -38,7 +38,7 @@ resource "aws_instance" "nodes" {
   count = var.instance_count
   ami = var.ami_type
   instance_type = var.instance_type
-  security_groups = [aws_security_group.sg-cluster]
+  security_groups = [aws_security_group.sg-cluster.id]
   subnet_id = var.public_subnet_id
   tags = {
     name = "Node-${count.index + 1}"
