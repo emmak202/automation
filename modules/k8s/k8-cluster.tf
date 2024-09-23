@@ -3,7 +3,7 @@ resource "aws_security_group" "sg-cluster" {
   vpc_id = var.vpc_id
   description = "Networkl security group for the kubernetes cluster" 
   tags = {
-    Name = Cluster-NSG
+    Name = "Cluster-NSG"
   }
   
 }
