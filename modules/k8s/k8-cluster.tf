@@ -29,7 +29,18 @@ resource "aws_instance" "master" {
     subnet_id = var.public_subnet_id
     security_groups = [aws_security_group.sg-cluster.id]
     tags = {
-      name: "master"
+      Name: "k8-Master"
+    }
+  
+}
+
+resource "aws_instance" "ansible" {
+    ami = var.ami_type
+    instance_type = var.instance_type
+    subnet_id = var.public_subnet_id
+    security_groups = [aws_security_group.sg-cluster.id]
+    tags = {
+      Name: "Ansible-server"
     }
   
 }
@@ -41,7 +52,7 @@ resource "aws_instance" "nodes" {
   security_groups = [aws_security_group.sg-cluster.id]
   subnet_id = var.public_subnet_id
   tags = {
-    name = "Node-${count.index + 1}"
+    Name = "Node-${count.index + 1}"
   }
 }
 
