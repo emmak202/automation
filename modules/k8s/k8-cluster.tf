@@ -15,6 +15,9 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
    from_port = 22
    to_port = 22
    ip_protocol = "tcp"
+   tags = {
+     Name = "Allow SSH form All Network"
+   }
    
 
 }
