@@ -7,7 +7,7 @@ phases:
 
   pre_build:
     commands:
-      - cd cicd # change directory to the terraform where the terraform config files are
+      - cd terraform # change directory to the terraform where the terraform config files are
       - chmod +x install-terraform.sh configure-profile-name.sh terraform-backend.sh apply-terraform.sh
       - ./terraform-backend.sh
       - ./install-terraform.sh
