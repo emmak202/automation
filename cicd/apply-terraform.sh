@@ -2,7 +2,7 @@
 
 set -eu
 
-cd ..
+cd /terraform
  
 terraform init
 
