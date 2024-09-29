@@ -38,8 +38,8 @@ resource "aws_vpc_security_group_ingress_rule" "Kube_api_server" {
 resource "aws_vpc_security_group_ingress_rule" "allow_etcd" {
    security_group_id = aws_security_group.sg-cluster.id
    cidr_ipv4 =  "0.0.0.0/0"
-   from_port = 2379-2380
-   to_port = 2379-2380
+   from_port = 2379
+   to_port = 2380
    ip_protocol = "tcp"
    tags = {
      Name = "Allow SSH form All Network"
@@ -104,8 +104,8 @@ resource "aws_vpc_security_group_ingress_rule" "allow_load_balancer" {
 resource "aws_vpc_security_group_ingress_rule" "allow_node_ports" {
    security_group_id = aws_security_group.sg-cluster.id
    cidr_ipv4 =  "0.0.0.0/0"
-   from_port = 30000-32767
-   to_port = 30000-32767
+   from_port = 30000
+   to_port = 32767
    ip_protocol = "tcp"
    tags = {
      Name = "Allow SSH form All Network"
