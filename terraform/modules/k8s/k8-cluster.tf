@@ -22,6 +22,45 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
 
 }
 
+resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+   security_group_id = aws_security_group.sg-cluster.id
+   cidr_ipv4 =  "0.0.0.0/0"
+   from_port = 80
+   to_port = 80
+   ip_protocol = "tcp"
+   tags = {
+     Name = "Allow http"
+   }
+   
+
+}
+
+resource "aws_vpc_security_group_ingress_rule" "allow_http2" {
+   security_group_id = aws_security_group.sg-cluster.id
+   cidr_ipv4 =  "0.0.0.0/0"
+   from_port = 8080
+   to_port = 8080
+   ip_protocol = "tcp"
+   tags = {
+     Name = "Allow http 8080"
+   }
+   
+
+}
+
+resource "aws_vpc_security_group_ingress_rule" "allow_https" {
+   security_group_id = aws_security_group.sg-cluster.id
+   cidr_ipv4 =  "0.0.0.0/0"
+   from_port = 443
+   to_port = 443
+   ip_protocol = "tcp"
+   tags = {
+     Name = "Allow https"
+   }
+   
+
+}
+
 resource "aws_vpc_security_group_ingress_rule" "Kube_api_server" {
    security_group_id = aws_security_group.sg-cluster.id
    cidr_ipv4 =  "0.0.0.0/0"
@@ -29,7 +68,7 @@ resource "aws_vpc_security_group_ingress_rule" "Kube_api_server" {
    to_port = 6443
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow api server"
    }
    
 
@@ -42,7 +81,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_etcd" {
    to_port = 2380
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow etcd"
    }
    
 
@@ -55,7 +94,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_kublet_api" {
    to_port = 10250
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow kube api"
    }
    
 
@@ -68,7 +107,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_kube-scheduler" {
    to_port = 10259
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow kube scheduler"
    }
    
 
@@ -81,7 +120,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_kube-ctl_manager" {
    to_port = 10257
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow kubectl manager"
    }
    
 
@@ -94,7 +133,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_load_balancer" {
    to_port = 10256
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow load balancer"
    }
    
 
@@ -108,7 +147,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_node_ports" {
    to_port = 32767
    ip_protocol = "tcp"
    tags = {
-     Name = "Allow SSH form All Network"
+     Name = "Allow Node ports"
    }
    
 
